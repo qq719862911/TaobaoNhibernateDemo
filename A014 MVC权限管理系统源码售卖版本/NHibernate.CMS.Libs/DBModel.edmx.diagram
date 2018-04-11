@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eced587212cc4ac9a4947c9c55deffab" Name="关系图1" ZoomLevel="78">
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_user" Width="1.5" PointX="2.25" PointY="2.5" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_module" Width="1.5" PointX="4.125" PointY="2.5" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_group" Width="1.5" PointX="6" PointY="2.5" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_action" Width="1.5" PointX="0.625" PointY="4.875" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_group_user" Width="1.5" PointX="2.25" PointY="5.125" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_acl_user" Width="1.5" PointX="6" PointY="4.25" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_acl_group" Width="1.5" PointX="4.125" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_Department" Width="1.5" PointX="0.5" PointY="2.5" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_config" Width="1.5" PointX="0.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="itCMSAccountModel.sys_token" Width="1.5" PointX="2.125" PointY="7.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

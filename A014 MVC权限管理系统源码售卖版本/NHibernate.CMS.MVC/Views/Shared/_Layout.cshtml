@@ -1,0 +1,180 @@
+﻿ 
+@using NHibernate.CMS.MVC;
+
+<!DOCTYPE html>
+ <html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<title>后台管理--控制台</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <!-- basic styles -->
+		<link href="@Url.StaticFile("~/assets/css/bootstrap.min.css")" rel="stylesheet" />
+		<link rel="stylesheet" href="@Url.StaticFile("~/assets/css/font-awesome.min.css")" />
+    <link href="@Url.StaticFile("~/Content/admin.css")" rel="stylesheet" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="@Url.StaticFile("~/assets/css/font-awesome-ie7.min.css")" />
+		<![endif]-->
+		<!-- ace styles -->
+		<link rel="stylesheet" href="@Url.StaticFile("~/assets/css/ace.min.css")" />
+		<link rel="stylesheet" href="@Url.StaticFile("~/assets/css/ace-rtl.min.css")" />
+		<link rel="stylesheet" href="@Url.StaticFile("~/assets/css/ace-skins.min.css")" />
+        <link href="@Url.StaticFile("~/Content/Flexigrid/css/flexigrid.css")" rel="stylesheet" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="@Url.StaticFile("~/assets/css/ace-ie.min.css")" />
+		<![endif]-->
+		<!-- ace settings handler -->
+		<script src="@Url.StaticFile("~/assets/js/ace-extra.min.js")"></script>
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="@Url.StaticFile("~/assets/js/html5shiv.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/respond.min.js")"></script>
+		<![endif]-->
+
+    @RenderSection("StyleSheet", required: false)
+</head>
+
+<body>
+  
+    @Html.Partial("_Header")
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+			    try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+					    try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+					</script>
+ 
+                     @Html.Partial("_Menu")
+					<!-- /.nav-list -->
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+					    try { ace.settings.check('sidebar', 'collapsed') } catch (e) { }
+					</script>
+				</div>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+						    try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">首页</a>
+							</li>
+							<li class="active">控制台</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						
+                    @RenderBody()
+
+						<!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+ 
+
+
+                @Html.Partial("_Theme")
+
+				 <!-- /#ace-settings-container -->
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+
+    
+  <!-- modal-container -->  
+<div class="modal fade"  id="myModal">
+  <div class="modal-dialog" style="width:85%; height:90%">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 id="tit-dialog" style="padding-left: 5px;"></h4>  
+         </div>
+        <div class="modal-body">
+            <iframe id="myIframe" style=" min-height:500px" width="100%" frameborder="0" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+        </div>
+        @*<div class="modal-footer">
+                
+              
+            </div>*@
+    </div>
+  </div>
+</div>
+<!-- /modal-container -->
+
+
+   
+    <!-- basic scripts -->
+		<!--[if !IE]> -->
+		<script src='@Url.StaticFile("~/assets/js/jquery-2.0.3.min.js")' type="text/javascript"></script>
+		<script type="text/javascript">
+		    if ("ontouchend" in document) document.write("<script src='@Url.StaticFile("~/assets/js/jquery.mobile.custom.min.js")'>" + "<" + "script>");
+		</script>
+		<script src="@Url.StaticFile("~/assets/js/bootstrap.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/typeahead-bs2.min.js")"></script>
+		<!-- page specific plugin scripts -->
+		<!--[if lte IE 8]>
+		  <script src="@Url.StaticFile("~/assets/js/excanvas.min.js")"></script>
+		<![endif]-->
+
+		<script src="@Url.StaticFile("~/assets/js/jquery-ui-1.10.3.custom.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/jquery.ui.touch-punch.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/jquery.slimscroll.min.js")"></script>
+		@*<script src="@Url.StaticFile("~/assets/js/jquery.easy-pie-chart.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/jquery.sparkline.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/flot/jquery.flot.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/flot/jquery.flot.pie.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/flot/jquery.flot.resize.min.js")"></script>*@
+        <script src="@Url.StaticFile("~/Content/Flexigrid/js/flexigrid.js")"></script>
+        <script src="@Url.StaticFile("~/Content/admin.min.js")"></script>
+        <script type="text/javascript" src="@Url.StaticFile("~/Content/lhgdialog/lhgdialog.js?skin=idialog")"></script>
+
+		<!-- ace scripts -->
+
+		<script src="@Url.StaticFile("~/assets/js/ace-elements.min.js")"></script>
+		<script src="@Url.StaticFile("~/assets/js/ace.min.js")"></script>
+    
+        @RenderSection("scripts", required: false)
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+		    jQuery(function ($) { 
+		        //关闭modal
+		        $('#close-modal').click(function () {
+		            $("#myModal").modal("hide");
+		        });
+
+		    })
+            
+		</script>
+</body>
+
+</html>

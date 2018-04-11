@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"  encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernate.CMS.Model" namespace="NHibernate.CMS.Model">
+	<class name="NHibernate.CMS.Model.sys_module, NHibernate.CMS.Model" table="sys_module">
+		<id name="moduleID" column="moduleID" type="int" unsaved-value="0">
+      			<generator class="native" />       			
+      	</id>      		
+		<property name="moduleKey" column="moduleKey" type="string"  />
+		<property name="moduleName" column="moduleName" type="string"  />
+		<property name="parentID" column="parentID" type="int"  />
+		<property name="urls" column="urls" type="string"  />
+		<property name="isMenu" column="isMenu" type="bool"  />
+		<property name="isDisplay" column="isDisplay" type="bool"  />
+		<property name="sort" column="sort" type="int"  />
+		<property name="icon" column="icon" type="string"  />
+		<property name="class_layer" column="class_layer" type="int"  />
+				
+	</class>
+</hibernate-mapping>

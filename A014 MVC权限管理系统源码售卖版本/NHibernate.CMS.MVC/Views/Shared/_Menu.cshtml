@@ -1,0 +1,110 @@
+﻿@using NHibernate.CMS.MVC.Common
+
+<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning" >
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->  
+
+<ul class="nav nav-list">
+						@*<li class="active">
+							<a href="index.html">
+								<i class="icon-dashboard"></i>
+								<span class="menu-text"> 控制台 </span>
+							</a>
+						</li>
+
+                        <li>
+							<a href="/Account/Action/List">
+								<i class="icon-text-width"></i>
+								<span class="menu-text"> 权限 </span>
+							</a>
+						</li>
+                        <li>
+							<a href="/Account/Model/List">
+								<i class="icon-text-width"></i>
+								<span class="menu-text"> 菜单管理 </span>
+							</a>
+						</li>
+						  <li>
+							<a href="/OA/Department/List" >
+								<i class="icon-text-width"></i>
+								<span class="menu-text"> 部门管理 </span>
+							</a>
+						</li>
+                         <li>
+							<a href="/OA/Roles/List" >
+								<i class="icon-text-width"></i>
+								<span class="menu-text"> 角色管理 </span>
+							</a>
+						</li>
+                        <li>
+							<a href="/OA/User/List" >
+								<i class="icon-text-width"></i>
+								<span class="menu-text"> 用户管理 </span>
+							</a>
+						</li>*@
+
+
+    
+    @foreach (var item in ServiceContext.loadModule())
+    {
+            var list2 = ServiceContext.loadNodeModule(item.moduleID); 
+            if (list2.Count>0){
+                <li> <a href="@(string.IsNullOrWhiteSpace(item.urls)==true?"javascript:;":item.urls)" class="dropdown-toggle">
+								<i class="@(string.IsNullOrWhiteSpace(item.icon)==true?"icon-desktop":item.icon)"></i>
+								<span class="menu-text"> @item.moduleName </span>
+            <b class="arrow icon-angle-down"></b>
+							</a>
+					
+                  	 
+							<ul class="submenu">
+            @foreach (var item2 in list2)
+               {	
+								<li>
+									<a href="@item2.urls">
+										<i class=" @(string.IsNullOrWhiteSpace(item2.icon)==true?"icon-double-angle-right":item2.icon)"></i>
+										@item2.moduleName
+									</a>
+								</li> }
+                                </ul>
+       
+        </li>
+      }else{
+             <li> <a href="@(string.IsNullOrWhiteSpace(item.urls)==true?"javascript:;":item.urls)" class="dropdown-toggle">
+								<i class="@(string.IsNullOrWhiteSpace(item.icon)==true?"icon-desktop":item.icon)"></i>
+								<span class="menu-text"> @item.moduleName </span></a></li>
+            
+            }
+      
+      
+    }
+    
+
+
+
+					</ul>

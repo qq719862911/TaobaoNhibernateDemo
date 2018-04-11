@@ -1,0 +1,48 @@
+﻿@using NHibernate.CMS.Model
+@using NHibernate.CMS.MVC.Common;
+@model sys_action
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section MainContent{
+ <div class="row show-grid">
+  
+    <div class="form-group">
+             <div class="col-sm-2"><label class="control-label"> Controller名称 </label></div>
+             <div class="col-sm-9">
+                  @Html.TextBoxFor(m => m.moduleKey, new { @class = "form-control",datatype="*", errormsg="Controller名称不能为空！"  })
+                 <span class="Validform_checktip">*填写信息</span>
+              </div>
+      </div>    
+         
+         
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">Action名称</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.actionKey, new {  @class = "form-control",datatype="*", errormsg="Action不能为空！" })
+                <span class="Validform_checktip">*填写信息</span>
+
+                   @* <div class="btn-group" data-toggle="buttons">
+                        @foreach (var item in NHibernate.CMS.MVC.Common.ServiceContext.CheckBoxList())
+                        {  
+                      <label class="btn btn-primary">
+                        <input type="radio" autocomplete="off" value="@item.VerID" name="actionKey"  /> @item.VerCode
+                      </label>
+                        }
+                            </div>*@
+                 
+                 </div>
+            
+          </div>    
+     
+     <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">权限名称</label></div>
+             <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.actionName, new {  @class = "form-control",datatype="*", errormsg="权限名称不能为空！"})
+                 <span class="Validform_checktip">*填写信息</span>
+              </div>  
+         </div>   
+        
+ </div>
+    }

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"  encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernate.CMS.Model" namespace="NHibernate.CMS.Model">
+	<class name="NHibernate.CMS.Model.sys_config, NHibernate.CMS.Model" table="sys_config">
+		<id name="id" column="id" type="int" unsaved-value="0">
+      			<generator class="native" />       			
+      	</id>      		
+		<property name="type" column="type" type="string"  />
+		<property name="name" column="name" type="string"  />
+		<property name="name_cn" column="name_cn" type="string"  />
+		<property name="sort_id" column="sort_id" type="int"  />
+		<property name="is_lock" column="is_lock" type="bool"  />
+		<property name="comment" column="comment" type="string"  />
+				
+	</class>
+</hibernate-mapping>

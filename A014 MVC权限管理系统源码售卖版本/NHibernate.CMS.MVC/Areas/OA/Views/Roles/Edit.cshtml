@@ -1,0 +1,67 @@
+﻿@using NHibernate.CMS.Model
+@using NHibernate.CMS.MVC.Common;
+@using NHibernate.CMS.MVC;
+ 
+@model sys_group
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@section MainContent{
+ <div class="row show-grid">
+  
+  
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">角色名称</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.groupName, new {  @class = "form-control",datatype="*", errormsg="名称不能为空！" })
+                <span class="Validform_checktip">*填写信息</span>
+                 </div>
+          </div>    
+      
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">权限</label></div>
+              <div class="col-sm-9">
+    　            <table border="0" cellspacing="0" cellpadding="0" class="border-table" width="98%">
+                    <thead>
+                      <tr>
+                        <th width="30%">导航名称</th>
+                        <th>权限分配</th>
+                         
+                      </tr>
+                    </thead>
+                    <tbody>
+          　　　　　　@foreach (var item in ViewBag.modulelist as List<sys_module>)
+                { 
+                      <tr>
+                        <td style="white-space:nowrap;word-break:break-all;overflow:hidden;">
+                           @item.moduleName
+                        </td>
+                        <td>
+                            
+                       
+                           @foreach (var chmode in ServiceContext.CheckBoxList(item.moduleKey) ){
+                               if (Model==null){
+                                     
+                           <input name="checkAll" type="checkbox" value="@chmode.actionID"  />@chmode.actionName
+                                      
+                           }else{            
+                               <input name="checkAll" type="checkbox" value="@chmode.actionID" checked="@ServiceContext.CheckChecked(Model.groupID,chmode.actionID)"  />@chmode.actionName
+                            
+                               }
+                           }
+                          
+                        </td>
+                        
+                      </tr>
+         　 }
+                    </tbody>
+                  </table>
+                <span class="Validform_checktip"></span>
+                 </div>
+          </div>  
+      
+ </div>
+    }
+　

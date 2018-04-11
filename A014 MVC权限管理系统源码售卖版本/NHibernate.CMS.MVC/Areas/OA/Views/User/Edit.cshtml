@@ -1,0 +1,92 @@
+﻿@using NHibernate.CMS.Model
+@using NHibernate.CMS.MVC.Common;
+@using NHibernate.CMS.MVC;
+ 
+@model sys_user
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@section MainContent{
+ <div class="row show-grid">
+  
+  
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">姓名</label></div>
+              <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.acctounName, new {  @class = "form-control",datatype="*", errormsg="姓名不能为空！" }) 
+                <span class="Validform_checktip">*填写信息</span>
+                 </div>
+          </div>    
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">账号</label></div>
+              <div class="col-sm-9">
+               @Html.TextBoxFor(m => m.userAccount, new {  @class = "form-control",datatype="*", errormsg="账号不能为空！" }) 
+                <span class="Validform_checktip">*填写信息</span>
+                 </div>
+          </div>  
+        <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">密码</label></div>
+              <div class="col-sm-9">
+                  @if(Model!=null){ 
+                     <div>
+                         是否修改密码<input type="checkbox" id="ckpwd" name="ckpwd"   />
+					 </div>
+                      @Html.PasswordFor(m => m.userPasswd, new {  @class = "form-control ",@style="display:none" })
+                  }else{
+                    @Html.PasswordFor(m => m.userPasswd, new {  @class = "form-control",datatype="*6-15", errormsg="密码范围在6~15位之间！" })
+                  }
+                <span class="Validform_checktip"></span>
+                 </div>
+          </div> 
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">手机</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.telephone, new {  @class = "form-control",datatype="m", errormsg="输入正确的手机号" })
+                <span class="Validform_checktip">填写信息</span>
+                 </div>
+          </div> 
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">邮箱</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.email, new {  @class = "form-control",datatype="e", errormsg="邮箱格式错误" })
+                <span class="Validform_checktip">填写信息</span>
+                 </div>
+          </div> 
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">是否启用</label></div>
+              <div class="col-sm-9">
+                  <div class="rule-single-checkbox checkbox-higth34">
+					@Html.CheckBoxFor(m => m.status, new {@class = "form-control"})
+					 </div>
+                 
+                <span class="Validform_checktip"></span>
+                 </div>
+          </div>  
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">部门</label></div>
+              <div class="col-sm-9">
+                  <div class="rule-single-select checkbox-higth34">
+					@Html.DropDownList("departID",  ViewBag.departIDs as SelectList, new { datatype="n", errormsg="选择部门" })
+					 </div>
+                 
+                <span class="Validform_checktip">@ViewBag.departErro</span>
+                 </div>
+          </div> 
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">角色</label></div>
+              <div class="col-sm-9">
+                  <div class="rule-single-select checkbox-higth34">
+					@Html.DropDownList("roleID", ViewBag.roleIDs as SelectList, new { datatype="n", errormsg="选择角色" })
+					 </div>
+                 
+                <span class="Validform_checktip" >@ViewBag.roleIDsErro</span>
+                 </div>
+          </div> 
+
+
+ </div>
+   
+    }
+　 

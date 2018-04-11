@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"  encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernate.CMS.Model" namespace="NHibernate.CMS.Model">
+	<class name="NHibernate.CMS.Model.sys_user, NHibernate.CMS.Model" table="sys_user">
+		<id name="userID" column="userID" type="int" unsaved-value="0">
+      			<generator class="native" />       			
+      	</id>      		
+		<property name="userAccount" column="userAccount" type="string"  />
+		<property name="userPasswd" column="userPasswd" type="string"  />
+		<property name="telephone" column="telephone" type="string"  />
+		<property name="email" column="email" type="string"  />
+		<property name="status" column="status" type="bool"  />
+		<property name="departID" column="departID" type="int"  />
+    <property name="acctounName" column="acctounName" type="string"  />
+    
+
+  </class>
+</hibernate-mapping>

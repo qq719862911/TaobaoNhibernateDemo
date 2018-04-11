@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="itCMSAccountModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="itCMSAccountModelStoreContainer">
+          <EntitySet Name="sys_config" EntityType="itCMSAccountModel.Store.sys_config" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sys_token" EntityType="itCMSAccountModel.Store.sys_token" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="sys_config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="name_cn" Type="nvarchar" MaxLength="50" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_lock" Type="tinyint" />
+          <Property Name="comment" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="sys_token">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DevId" Type="nvarchar" MaxLength="100" />
+          <Property Name="AppId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CertId" Type="nvarchar" MaxLength="100" />
+          <Property Name="ApiToken" Type="text" />
+          <Property Name="ebay_account" Type="nvarchar" MaxLength="50" />
+          <Property Name="name_cn" Type="nvarchar" MaxLength="50" />
+          <Property Name="name_en" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="itCMSAccountModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="itCMSAccountEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sys_user" EntityType="itCMSAccountModel.sys_user" />
+          <EntitySet Name="sys_module" EntityType="itCMSAccountModel.sys_module" />
+          <EntitySet Name="sys_group" EntityType="itCMSAccountModel.sys_group" />
+          <EntitySet Name="sys_action" EntityType="itCMSAccountModel.sys_action" />
+          <EntitySet Name="sys_group_user" EntityType="itCMSAccountModel.sys_group_user" />
+          <EntitySet Name="sys_acl_user" EntityType="itCMSAccountModel.sys_acl_user" />
+          <EntitySet Name="sys_acl_group" EntityType="itCMSAccountModel.sys_acl_group" />
+          <EntitySet Name="sys_Department" EntityType="itCMSAccountModel.sys_Department" />
+          <EntitySet Name="sys_config" EntityType="itCMSAccountModel.sys_config" />
+          <EntitySet Name="sys_token" EntityType="itCMSAccountModel.sys_token" />
+        </EntityContainer>
+        <EntityType Name="sys_user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Type="Int32" Name="userID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="userAccount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="userPasswd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="telephone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="Int32" Name="departID" Nullable="true" />
+          <Property Type="String" Name="acctounName" Nullable="true" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_module">
+          <Key>
+            <PropertyRef Name="moduleID" />
+          </Key>
+          <Property Type="Int32" Name="moduleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="moduleKey" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="moduleName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="parentID" Nullable="false" />
+          <Property Type="String" Name="urls" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="isMenu" Nullable="false" />
+          <Property Type="Boolean" Name="isDisplay" Nullable="false" />
+          <Property Type="Int32" Name="sort" Nullable="true" />
+          <Property Type="String" Name="icon" MaxLength="50" Nullable="true" />
+          <Property Type="Int32" Name="class_layer" Nullable="true" />
+        </EntityType>
+        <EntityType Name="sys_group">
+          <Key>
+            <PropertyRef Name="groupID" />
+          </Key>
+          <Property Type="Int32" Name="groupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="groupName" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_action">
+          <Key>
+            <PropertyRef Name="actionID" />
+          </Key>
+          <Property Type="Int32" Name="actionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="moduleKey" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="actionKey" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="actionName" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_group_user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="groupID" Nullable="false" />
+          <Property Type="Int32" Name="userID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_acl_user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="userID" Nullable="false" />
+          <Property Type="Int32" Name="actionID" Nullable="false" />
+          <Property Type="Boolean" Name="access" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_acl_group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="groupID" Nullable="false" />
+          <Property Type="Int32" Name="actionID" Nullable="false" />
+          <Property Type="Boolean" Name="access" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DeparName" Nullable="false" />
+          <Property Type="Int32" Name="parentID" Nullable="false" />
+          <Property Type="Int32" Name="sort" Nullable="true" />
+        </EntityType>
+        <EntityType Name="sys_config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name_cn" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sort_id" />
+          <Property Type="Boolean" Name="is_lock" />
+          <Property Type="String" Name="comment" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sys_token">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DevId" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AppId" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CertId" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ApiToken" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ebay_account" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name_cn" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name_en" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="itCMSAccountModelStoreContainer" CdmEntityContainer="itCMSAccountEntities">
+          <EntitySetMapping Name="sys_config">
+            <EntityTypeMapping TypeName="itCMSAccountModel.sys_config">
+              <MappingFragment StoreEntitySet="sys_config">
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="name_cn" ColumnName="name_cn" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_token">
+            <EntityTypeMapping TypeName="itCMSAccountModel.sys_token">
+              <MappingFragment StoreEntitySet="sys_token">
+                <ScalarProperty Name="name_en" ColumnName="name_en" />
+                <ScalarProperty Name="name_cn" ColumnName="name_cn" />
+                <ScalarProperty Name="ebay_account" ColumnName="ebay_account" />
+                <ScalarProperty Name="ApiToken" ColumnName="ApiToken" />
+                <ScalarProperty Name="CertId" ColumnName="CertId" />
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="DevId" ColumnName="DevId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

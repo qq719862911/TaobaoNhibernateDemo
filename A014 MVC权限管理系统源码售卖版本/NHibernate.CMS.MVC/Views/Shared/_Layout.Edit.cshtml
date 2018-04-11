@@ -1,0 +1,86 @@
+﻿  
+@using NHibernate.CMS.MVC;
+
+<!DOCTYPE html>
+ <html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<title>后台管理--控制台</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <!-- basic styles -->
+		<link href="@Url.StaticFile("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+		<link href="@Url.StaticFile("~/Content/bootstrap/css/bootstrap-theme.min.css")" rel="stylesheet" /> 
+    <link href="@Url.StaticFile("~/Content/bootstrap/css/bootstrap-theme.min.css")" rel="stylesheet" /> 
+     <link href="@Url.StaticFile("~/Content/admin.css")" rel="stylesheet" /> 
+    <link href="@Url.StaticFile("~/Content/Validform/css/style.css")" rel="stylesheet" />
+
+ 
+    <style type="text/css">
+        .control-label {
+            height: 29px;
+            text-align: right;
+            float: right;
+            padding-top: 6px;
+         }
+       .row {
+         margin-left:0px;
+         margin-top:10px
+        }
+    </style>
+    @RenderSection("othStyleSheet", required: false)
+</head>
+
+<body style="max-width:1000px; max-height:1050px">
+ <div class="container-fluid">
+    <div class="row">
+ 
+  @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm", @class = "mainForm" }))
+  {
+
+      @RenderSection("MainContent", required: false)
+        @RenderBody()
+ 
+      <div class="clearfix form-actions">
+          
+			<div class="col-md-offset-3 col-md-9"> 
+											<button class="btn btn-info btn-lg" type="submit">
+												<i class="icon-ok bigger-110"></i>
+												提交
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn btn-warning btn-lg" type="reset" >
+												<i class="icon-undo bigger-110"></i>
+												撤销
+											</button>
+										</div>
+           @Html.ValidationSummary(false)
+									</div>
+     
+    
+  }
+     </div> 
+ </div> 
+    @RenderSection("othscripts", required: false)
+    <!-- basic scripts -->
+		<!--[if !IE]> -->
+		<script src='@Url.StaticFile("~/assets/js/jquery-2.0.3.min.js")' type="text/javascript"></script>
+
+		<script type="text/javascript">
+		    if ("ontouchend" in document) document.write("<script src='@Url.StaticFile("~/assets/js/jquery.mobile.custom.min.js")'>" + "<" + "script>");
+		</script>
+		<script src="@Url.StaticFile("~/Content/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.StaticFile("~/Content/Validform/Validform_v5.3.2_min.js")"></script>
+    <script src="@Url.StaticFile("~/Content/admin.min.js")"></script>
+     <script type="text/javascript" src="@Url.StaticFile("~/Content/lhgdialog/lhgdialog.js?skin=idialog")"></script>
+    　
+     <script type="text/javascript">
+         $(function () {
+             $(".mainForm").initValidform();
+         })
+
+     </script>
+     
+	 </body>
+</html>

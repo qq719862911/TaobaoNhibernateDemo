@@ -1,0 +1,46 @@
+﻿@using NHibernate.CMS.Model
+
+@model sys_config
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@section MainContent{
+ <div class="row show-grid">
+  
+  
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">显示名称</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.name, new {  @class = "form-control",datatype="*", errormsg="名称不能为空！" })
+                <span class="Validform_checktip">*填写信息</span>
+                 </div>
+          </div>    
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">内容值</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.name_cn, new {  @class = "form-control",datatype="*", errormsg="内容不能为空！" })
+                <span class="Validform_checktip">*填写信息</span>
+                 </div>
+          </div> 
+        <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">排序</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.name_cn, new {  @class = "form-control",datatype="n", errormsg="只能为数字" })
+                <span class="Validform_checktip">*填写信息</span>
+                 </div>
+          </div> 
+     <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">是否启用</label></div>
+              <div class="col-sm-9">
+                  <div class="rule-single-checkbox checkbox-higth34">
+					@Html.CheckBoxFor(m => m.is_lock, new {@class = "form-control"})
+					 </div>
+                <span class="Validform_checktip"></span>
+                 </div>
+          </div> 
+      
+ </div>
+    }
+　

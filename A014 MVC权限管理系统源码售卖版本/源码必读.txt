@@ -1,0 +1,15 @@
+﻿一、源码描述
+    这是一款采用了NHibernate+MVC4+bootstrap+Redis（默认注释掉了选配）+T4技术开发的
+    MVC权限管理系统源码。
+二、功能介绍
+    该源码主要包括了菜单管理、权限管理、用户管理、角色管理、部门管理、配置信息的
+    功能。 
+三、注意事项
+    1、管理员用户名密码均是:admin。
+    2、开发环境为Visual Studio 2012，数据库为SQL Server 2008r2，数据库文件在
+    DB_51aspx文件夹中，使用.net 4.0开发。
+    3、默认数据库连接字符串在webconfig和appconfig配置文件中修改。
+    4、使用的时候注意修改webconfig和BaseOperator.cs文件中xml的路径，要和本地的
+    绝对路径保持一致。
+
+

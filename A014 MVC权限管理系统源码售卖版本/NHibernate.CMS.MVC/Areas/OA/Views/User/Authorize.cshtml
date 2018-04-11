@@ -1,0 +1,66 @@
+﻿@using NHibernate.CMS.Model
+@using NHibernate.CMS.MVC.Common;
+@model sys_user
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section MainContent{
+ <div class="row show-grid">
+  
+    <div class="form-group">
+             <div class="col-sm-2"><label class="control-label"> 姓名 </label></div>
+             <div class="col-sm-9">
+              <label class="checkbox-higth29">  @Model.acctounName</label>
+                 <span class="Validform_checktip"></span>
+              </div>
+      </div>    
+      <div class="form-group">
+             <div class="col-sm-2"><label class="control-label"> 账号 </label></div>
+             <div class="col-sm-9">
+                <label class="checkbox-higth29">@Model.userAccount</label>
+                 <span class="Validform_checktip"></span>
+              </div>
+      </div>  
+       <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">权限</label></div>
+             <div class="col-sm-9">
+                   <table border="0" cellspacing="0" cellpadding="0" class="border-table" width="98%">
+                    <thead>
+                      <tr>
+                        <th width="30%">导航名称</th>
+                        <th>权限分配</th>
+                         
+                      </tr>
+                    </thead>
+                    <tbody>
+          　　　　　　@foreach (var item in ViewBag.modulelist as List<sys_module>)
+                { 
+                      <tr>
+                        <td style="white-space:nowrap;word-break:break-all;overflow:hidden;">
+                           @item.moduleName
+                        </td>
+                        <td>
+                            
+                       
+                           @foreach (var chmode in ServiceContext.CheckBoxList(item.moduleKey) ){
+                              if (Model==null){ 
+                                 <input name="checkAll" type="checkbox" value="@chmode.actionID"  />@chmode.actionName
+                                      
+                            }else{            
+                               <input name="checkAll" type="checkbox" value="@chmode.actionID" checked="@ServiceContext.CheckUserChecked(Model.userID,chmode.actionID)"  />@chmode.actionName
+                               }
+                           }
+                          
+                        </td>
+                        
+                      </tr>
+         　 }
+                    </tbody>
+                  </table>
+                 <span class="Validform_checktip Validform_wrong">@ViewBag.UserDsErro</span>
+              </div>  
+         </div> 
+      
+ </div>
+    }

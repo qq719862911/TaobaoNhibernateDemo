@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"  encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernate.CMS.Model" namespace="NHibernate.CMS.Model">
+	<class name="NHibernate.CMS.Model.sys_acl_group, NHibernate.CMS.Model" table="sys_acl_group">
+		<id name="ID" column="ID" type="int" unsaved-value="0">
+      			<generator class="native" />       			
+      	</id>      		
+		<property name="groupID" column="groupID" type="int"  />
+		<property name="actionID" column="actionID" type="int"  />
+		<property name="access" column="access" type="bool"  />
+				
+	</class>
+</hibernate-mapping>

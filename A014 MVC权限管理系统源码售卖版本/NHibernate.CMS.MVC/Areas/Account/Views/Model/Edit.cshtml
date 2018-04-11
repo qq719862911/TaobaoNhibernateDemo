@@ -1,0 +1,95 @@
+﻿@using NHibernate.CMS.Model
+@using NHibernate.CMS.MVC.Common;
+@model sys_module
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section MainContent{
+ <div class="row show-grid">
+  
+    <div class="form-group">
+             <div class="col-sm-2"><label class="control-label"> Controller名称 </label></div>
+             <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.moduleKey, new { @class = "form-control",datatype="*", errormsg="Controller名称不能为空！"  })
+                 <span class="Validform_checktip">*填写信息</span>
+              </div>
+      </div>    
+         
+         
+      <div class="form-group">
+             <div class="col-sm-2"><label for="form-field-2" class="control-label">名称</label></div>
+              <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.moduleName, new {  @class = "form-control",datatype="*", errormsg="名称不能为空！" })
+                <span class="Validform_checktip">*填写信息</span>
+                   
+                 </div>
+            
+          </div>    
+     <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">上级目录</label></div>
+             <div class="col-sm-9">
+                 <div class="rule-single-select checkbox-higth34">
+                       
+                     @Html.DropDownList("ParentIds")
+                     
+
+                     </div>
+                
+                 <span class="Validform_checktip">*填写信息</span>
+              </div>  
+         </div> 
+     <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">是否菜单</label></div>
+             <div class="col-sm-9 ">
+                  <div class="rule-single-checkbox checkbox-higth34">
+					@Html.CheckBoxFor(m => m.isMenu, new {@class = "form-control"})
+					 </div>
+                 <span class="Validform_checktip"></span>
+              </div>  
+         </div>   
+     <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">是否显示</label></div>
+             <div class="col-sm-9">
+                 <div class="rule-single-checkbox checkbox-higth34">
+					@Html.CheckBoxFor(m => m.isDisplay)
+					 </div>
+                 <span class="Validform_checktip"></span>
+              </div>  
+         </div> 
+     
+      <div class="form-group">
+      <div class="col-sm-2"><label for="form-field-3" class="control-label">Url地址</label></div>
+             <div class="col-sm-9">
+                  
+                 @Html.TextBoxFor(m => m.urls, new { @class = "form-control"})
+                 <span class="Validform_checktip"></span>
+              </div>  
+         </div> 
+     <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">图标ICON</label></div>
+             <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.icon, new {  @class = "form-control"})
+                 <span class="Validform_checktip">填写图片名称</span>
+              </div>  
+         </div> 
+     <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">排序号</label></div>
+             <div class="col-sm-9">
+                 @Html.TextBoxFor(m => m.sort, new {  @class = "form-control",datatype="n", errormsg="只能为数字！"})
+                 <span class="Validform_checktip">*填写信息</span>
+              </div>  
+         </div> 
+     
+       <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">权限</label></div>
+             <div class="col-sm-9">
+                 <div class="rule-multi-porp">
+                    @Html.CheckBoxList("actionList",true)
+                       </div>
+                 <span class="Validform_checktip"></span>
+              </div>  
+         </div> 
+      
+ </div>
+    }
