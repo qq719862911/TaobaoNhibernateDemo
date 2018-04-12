@@ -75,6 +75,9 @@ namespace NHibernate.CMS.DTO
     {
          
     }
+    public partial class Oa_student_courseRepository : BaseRepository<oa_student_course>, Isys_Oa_student_courseRepository
+    {
 
-	
+    }
+
 }

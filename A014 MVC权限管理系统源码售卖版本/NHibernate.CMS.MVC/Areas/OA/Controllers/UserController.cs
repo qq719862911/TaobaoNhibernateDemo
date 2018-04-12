@@ -37,7 +37,7 @@ namespace NHibernate.CMS.MVC.Areas.OA.Controllers
             result.pageSize = this.GetPageSize;
             result.pageIndex = this.GetPageIndex;
 
-            string query = this.GetQueryStr;//查询条件
+            string query = this.GetQueryStr.Trim();//查询条件
             string whereLambda = "";
             if (!string.IsNullOrWhiteSpace(query))
             { whereLambda = " (userAccount like '%" + query + "%' or acctounName like '%" + query + "%')"; }

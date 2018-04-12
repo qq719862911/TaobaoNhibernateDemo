@@ -90,5 +90,11 @@ namespace NHibernate.CMS.Business
             CurrentRepository =new NHibernate.CMS.DTO.sys_userRepository();
         }  
     }
-	
+    public partial class sys_Oa_student_courseService : BaseService<oa_student_course>, IBusiness.Isys_Oa_student_courseService
+    {
+        public override void SetCurrentRepository()
+        {
+            CurrentRepository = new NHibernate.CMS.DTO.Oa_student_courseRepository();
+        }
+    }
 }

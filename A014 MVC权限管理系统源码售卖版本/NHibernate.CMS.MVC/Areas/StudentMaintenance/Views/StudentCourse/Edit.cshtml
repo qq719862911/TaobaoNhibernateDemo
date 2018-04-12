@@ -1,0 +1,34 @@
+﻿@using NHibernate.CMS.Model
+@using NHibernate.CMS.MVC.Common;
+@model oa_student_course
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section MainContent{
+    <div class="row show-grid">
+
+
+        <div class="form-group">
+            <div class="col-sm-2"><label for="form-field-2" class="control-label">课程名称</label></div>
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", datatype = "*", errormsg = "名称不能为空！" })
+                <span class="Validform_checktip">*填写信息</span>
+
+            </div>
+
+        </div>
+       
+
+        <div class="form-group">
+            <div class="col-sm-2"> <label for="form-field-3" class="control-label">价格</label></div>
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control", datatype = "n", errormsg = "只能为数字！" })
+                <span class="Validform_checktip">*填写信息</span>
+            </div>
+        </div>
+
+
+
+    </div>
+}

@@ -35,5 +35,6 @@ namespace NHibernate.CMS.Libs
         public DbSet<sys_Department> sys_Department { get; set; }
         public DbSet<sys_config> sys_config { get; set; }
         public DbSet<sys_token> sys_token { get; set; }
+        public DbSet<oa_student_course> oa_student_courseSet { get; set; }
     }
 }

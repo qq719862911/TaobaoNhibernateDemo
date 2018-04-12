@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="itCMSAccountModel.sys_Department" Width="1.5" PointX="0.5" PointY="2.5" />
         <EntityTypeShape EntityType="itCMSAccountModel.sys_config" Width="1.5" PointX="0.5" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="itCMSAccountModel.sys_token" Width="1.5" PointX="2.125" PointY="7.25" />
+        <EntityTypeShape EntityType="itCMSAccountModel.oa_student_course" Width="1.5" PointX="6" PointY="6.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

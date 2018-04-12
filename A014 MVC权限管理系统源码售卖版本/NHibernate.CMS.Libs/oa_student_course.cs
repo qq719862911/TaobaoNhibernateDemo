@@ -6,15 +6,16 @@
 //    如果重新生成代码，则将覆盖对此文件的手动更改。
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace NHibernate.CMS.Model
+
+namespace NHibernate.CMS.Libs
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class oa_student_course
     {
-        public virtual int ID { get; set; }
-        public virtual string Name { get; set; }
-        public virtual decimal Price { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
     }
 }

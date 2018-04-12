@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -124,6 +125,8 @@
     <Compile Include="Areas\OA\Controllers\UserController.cs" />
     <Compile Include="Areas\OA\OAAreaRegistration.cs" />
     <Compile Include="Areas\Purchases\PurchasesAreaRegistration.cs" />
+    <Compile Include="Areas\StudentMaintenance\Controllers\StudentCourseController.cs" />
+    <Compile Include="Areas\StudentMaintenance\StudentMaintenanceAreaRegistration.cs" />
     <Compile Include="Areas\Systems\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Systems\SystemsAreaRegistration.cs" />
     <Compile Include="Common\AdminControllerBase.cs" />
@@ -391,7 +394,9 @@
     <Content Include="Content\Validform\images\totop.png" />
     <Content Include="Content\Validform\Validform_v5.3.2_min.js" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -405,6 +410,8 @@
     <Folder Include="Areas\CMS\Controllers\" />
     <Folder Include="Areas\Purchases\Controllers\" />
     <Folder Include="Areas\Purchases\Views\Supplier\" />
+    <Folder Include="Areas\StudentMaintenance\Models\" />
+    <Folder Include="Areas\StudentMaintenance\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -536,6 +543,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Systems\Views\settings\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\StudentMaintenance\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\StudentMaintenance\Views\StudentCourse\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\StudentMaintenance\Views\StudentCourse\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

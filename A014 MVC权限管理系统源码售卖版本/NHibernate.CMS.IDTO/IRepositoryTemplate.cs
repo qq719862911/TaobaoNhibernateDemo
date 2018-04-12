@@ -45,5 +45,7 @@ namespace NHibernate.CMS.IDTO
     public partial interface Isys_userRepository :IBaseRepository<sys_user>
     {         
     }
-	
+    public partial interface Isys_Oa_student_courseRepository : IBaseRepository<oa_student_course>
+    {
+    }
 }

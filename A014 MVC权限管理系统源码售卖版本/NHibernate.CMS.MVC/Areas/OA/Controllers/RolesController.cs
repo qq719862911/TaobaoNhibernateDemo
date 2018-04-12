@@ -33,7 +33,7 @@ namespace NHibernate.CMS.MVC.Areas.OA.Controllers
             result.pageSize = this.GetPageSize;
             result.pageIndex = this.GetPageIndex;
              
-            string query = this.GetQueryStr;//查询条件
+            string query = this.GetQueryStr.Trim();//查询条件
 
             //IList<sys_group> list = bll.LoadPagerEntities<sys_group>(result, out total, k => string.IsNullOrWhiteSpace(query) ? k.groupID > 0 : (k.groupName.Contains(query))
             //    , this.GetOrderBy, m => (string.IsNullOrWhiteSpace(this.GetSort) == true ? m.groupID.ToString() :this.GetSort));

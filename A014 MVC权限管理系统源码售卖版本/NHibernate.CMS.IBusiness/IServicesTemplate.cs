@@ -39,5 +39,6 @@ namespace NHibernate.CMS.IBusiness
 	
 	public partial interface Isys_userService:IBaseService<sys_user>
     {   }
-	
+    public partial interface Isys_Oa_student_courseService : IBaseService<oa_student_course>
+    { }
 }
